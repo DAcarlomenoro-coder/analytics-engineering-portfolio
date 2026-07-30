@@ -2,6 +2,7 @@ import { AdditionalCaseStudies } from "@/components/AdditionalCaseStudies";
 import { AIAutomation } from "@/components/AIAutomation";
 import { About } from "@/components/About";
 import { AnalyticsEngineering } from "@/components/AnalyticsEngineering";
+import { CareerDirection } from "@/components/CareerDirection";
 import { Certifications } from "@/components/Certifications";
 import { Contact } from "@/components/Contact";
 import { CoreCapabilities } from "@/components/CoreCapabilities";
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
+        <CareerDirection />
         <PowerPlatform />
         <FeaturedProjects />
         <PowerPlatformConcept />

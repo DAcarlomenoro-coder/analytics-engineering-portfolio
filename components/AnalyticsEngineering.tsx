@@ -5,8 +5,8 @@ export function AnalyticsEngineering() {
   return (
     <Section
       id="analytics-engineering"
-      eyebrow="Analytics Engineering"
-      title="A developing specialization, built on the BI foundation above."
+      eyebrow="Analytics Engineering — Developing Specialization"
+      title="Not current professional experience — a specialization I'm building on my BI foundation."
       intro={analyticsEngineering.intro}
     >
       <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">

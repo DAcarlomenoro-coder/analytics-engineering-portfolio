@@ -14,7 +14,7 @@ export function AdditionalCaseStudies() {
     >
       <div className="grid gap-5 sm:grid-cols-3">
         {additionalCaseStudies.map((c) => (
-          <article key={c.title} className="rounded-xl border border-border bg-background p-5">
+          <article key={c.title} className="rounded-xl border border-border bg-card p-5">
             <h3 className="text-sm font-semibold text-foreground">{c.title}</h3>
             <div className="mt-2">
               <StatusBadge status={c.status} />

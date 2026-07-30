@@ -13,7 +13,7 @@ export function FeaturedProjects() {
     >
       <div className="grid gap-5 sm:grid-cols-2">
         {featuredProjects.map((p) => (
-          <article key={p.title} className="flex flex-col rounded-xl border border-border bg-background p-6">
+          <article key={p.title} className="flex flex-col rounded-xl border border-border bg-card p-6">
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-base font-semibold text-foreground text-balance">{p.title}</h3>
             </div>

@@ -22,7 +22,7 @@ export function About() {
                 ) : null}
                 <span
                   aria-hidden
-                  className="absolute top-1.5 left-0 h-2.5 w-2.5 rounded-full border-2 border-accent bg-background"
+                  className="absolute top-1.5 left-0 h-2.5 w-2.5 rounded-full border-2 border-accent bg-card"
                 />
                 <div className="pb-6">
                   <p className="text-sm font-medium text-foreground">{step.label}</p>

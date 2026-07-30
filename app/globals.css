@@ -1,51 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --surface: #f6f7fb;
-  --surface-strong: #eef0f7;
-  --foreground: #0f1629;
-  --muted: #565f78;
-  --border: #e2e4ee;
-  --accent: #2a3fd6;
-  --accent-strong: #1f2fa8;
-  --accent-soft: #edefff;
+  /* Enterprise analytics palette — navy dominant, blue = BI, cyan = sparing accent */
+  --navy: #0b1f3a;
+  --background: #f8fafc;
+  --card: #ffffff;
+  --surface: #eef2f7;
+  --surface-strong: #e4e9f1;
+  --foreground: #1e293b;
+  --muted: #64748b;
+  --border: #cbd5e1;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --accent-soft: #dbeafe;
+  --cyan: #06b6d4;
+  --cyan-soft: #cffafe;
 
   --status-complete-bg: #e8f5ee;
   --status-complete-fg: #17703f;
   --status-development-bg: #fdf1e2;
   --status-development-fg: #9a5b0a;
-  --status-architecture-bg: #eaf0ff;
-  --status-architecture-fg: #2a3fd6;
+  --status-architecture-bg: #dbeafe;
+  --status-architecture-fg: #1d4ed8;
   --status-planned-bg: #eef0f4;
   --status-planned-fg: #4b5468;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0e1a;
-    --surface: #0f1526;
-    --surface-strong: #161e35;
-    --foreground: #e7e9f5;
-    --muted: #9aa2bd;
-    --border: #232b47;
-    --accent: #7c8bff;
-    --accent-strong: #a3aeff;
-    --accent-soft: #161c3d;
+    --navy: #0b1f3a;
+    --background: #0a1424;
+    --card: #0f1b30;
+    --surface: #0d1830;
+    --surface-strong: #142440;
+    --foreground: #e7edf7;
+    --muted: #93a0b8;
+    --border: #22314d;
+    --accent: #5b8cf5;
+    --accent-strong: #8ab0ff;
+    --accent-soft: #142a4d;
+    --cyan: #22d3ee;
+    --cyan-soft: #0b2b34;
 
     --status-complete-bg: #10281c;
     --status-complete-fg: #5fd696;
     --status-development-bg: #2c2109;
     --status-development-fg: #f0a83e;
-    --status-architecture-bg: #131b3d;
-    --status-architecture-fg: #93a1ff;
+    --status-architecture-bg: #142a4d;
+    --status-architecture-fg: #8ab0ff;
     --status-planned-bg: #171d30;
     --status-planned-fg: #a6adc4;
   }
 }
 
 @theme inline {
+  --color-navy: var(--navy);
   --color-background: var(--background);
+  --color-card: var(--card);
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);
   --color-foreground: var(--foreground);
@@ -54,6 +65,8 @@
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
+  --color-cyan: var(--cyan);
+  --color-cyan-soft: var(--cyan-soft);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

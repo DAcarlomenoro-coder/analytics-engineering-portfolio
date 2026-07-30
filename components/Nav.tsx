@@ -4,36 +4,41 @@ import { useState } from "react";
 import { site } from "@/lib/content";
 
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#power-platform", label: "Power Platform" },
-  { href: "#projects", label: "Projects" },
-  { href: "#case-studies", label: "Case Studies" },
-  { href: "#capabilities", label: "Skills" },
-  { href: "#certifications", label: "Certifications" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "About", fullLabel: "About" },
+  { href: "#experience", label: "Experience", fullLabel: "Experience" },
+  { href: "#career-direction", label: "Career Direction", fullLabel: "Career Direction" },
+  { href: "#power-platform", label: "Power Platform", fullLabel: "Power Platform" },
+  { href: "#projects", label: "Projects", fullLabel: "Projects" },
+  { href: "#case-studies", label: "Cases", fullLabel: "Case Studies" },
+  { href: "#capabilities", label: "Skills", fullLabel: "Skills" },
+  { href: "#certifications", label: "Certs", fullLabel: "Certifications" },
+  { href: "#contact", label: "Contact", fullLabel: "Contact" },
 ];
 
 export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="#top" className="shrink-0 font-semibold tracking-tight">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/85">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-6 py-4">
+        <a href="#top" className="shrink-0 font-semibold tracking-tight text-white">
           {site.name}
         </a>
 
-        <nav aria-label="Primary" className="hidden md:flex md:items-center md:gap-5 lg:gap-6">
+        <nav aria-label="Primary" className="hidden md:flex md:min-w-0 md:items-center md:gap-3 lg:gap-4">
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted transition-colors hover:text-foreground">
+            <a
+              key={l.href}
+              href={l.href}
+              className="whitespace-nowrap text-[13px] text-white/70 transition-colors hover:text-cyan"
+            >
               {l.label}
             </a>
           ))}
           <a
             href={site.resumeFile}
             download
-            className="rounded-md bg-accent px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-strong"
+            className="shrink-0 rounded-md bg-white px-3.5 py-2 text-sm font-medium text-navy transition-colors hover:bg-cyan-soft"
           >
             Download Resume
           </a>
@@ -41,7 +46,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md border border-border p-2 md:hidden"
+          className="inline-flex items-center justify-center rounded-md border border-white/20 p-2 text-white md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -59,16 +64,16 @@ export function Nav() {
       </div>
 
       {open ? (
-        <nav id="mobile-nav" aria-label="Primary mobile" className="border-t border-border md:hidden">
+        <nav id="mobile-nav" aria-label="Primary mobile" className="border-t border-white/10 bg-navy md:hidden">
           <ul className="mx-auto flex max-w-5xl flex-col gap-1 px-6 py-3">
             {LINKS.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="block rounded-md px-2 py-2 text-sm text-muted hover:bg-surface hover:text-foreground"
+                  className="block rounded-md px-2 py-2 text-sm text-white/70 hover:bg-white/5 hover:text-cyan"
                   onClick={() => setOpen(false)}
                 >
-                  {l.label}
+                  {l.fullLabel}
                 </a>
               </li>
             ))}
@@ -76,7 +81,7 @@ export function Nav() {
               <a
                 href={site.resumeFile}
                 download
-                className="mt-1 block rounded-md bg-accent px-2 py-2 text-center text-sm font-medium text-white"
+                className="mt-1 block rounded-md bg-white px-2 py-2 text-center text-sm font-medium text-navy"
                 onClick={() => setOpen(false)}
               >
                 Download Resume

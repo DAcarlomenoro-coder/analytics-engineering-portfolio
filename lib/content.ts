@@ -7,46 +7,68 @@ export type Status = "Complete" | "In Development" | "Architecture Complete" | "
 
 export const site = {
   name: "Carlo Menoro",
-  title: "Analytics Engineering, Power Platform & AI Automation Professional",
-  supportingLine: "Business Intelligence • Analytics Engineering • Power Platform • AI Automation",
+  title: "Senior Business Intelligence Analyst & Analytics Specialist",
+  titleShort: "Senior Business Intelligence & Analytics Professional",
+  supportingLine: "Business Intelligence • Power BI • SQL • Python • Power Platform • AI-Assisted Automation",
   location: "Philippines",
   email: "plukcarlo.menoro@gmail.com",
   github: "https://github.com/DAcarlomenoro-coder",
   linkedin: null as string | null, // no LinkedIn URL has been provided — omit until one exists
-  resumeFile: "/resume/Carlo_Menoro_Analytics_Engineering_Resume.pdf",
+  resumeFile: "/resume/Carlo_Menoro_Senior_BI_Analytics_Resume.pdf",
   siteUrl: "https://analytics-engineering.carlomenoro.dev", // placeholder — update once a real domain/deployment URL exists
   versionANote:
-    "This site is the technical companion to my Business Intelligence–focused resume and portfolio (Version A), which covers BI leadership, governance, and executive reporting in more depth. This site focuses on analytics engineering, the Microsoft Power Platform, and AI-assisted solution design.",
+    "This site is the technical companion to my primary Business Intelligence resume and portfolio (Version A), which covers BI leadership, governance, and executive reporting in more depth. This site adds detail on where I'm expanding next — Analytics Engineering, the Microsoft Power Platform, and AI-assisted solution design.",
 };
 
 export const seo = {
-  title: "Carlo Menoro — Analytics Engineering, Power Platform & AI Automation",
+  title: "Carlo Menoro — Senior Business Intelligence Analyst & Analytics Specialist",
   description:
-    "Portfolio of Carlo Menoro: Business Intelligence, Analytics Engineering, Microsoft Power Platform, Python automation, and AI-assisted solution design — positioned for Analytics Engineer, BI Developer, and Power Platform roles.",
+    "Portfolio of Carlo Menoro: 5+ years in Business Intelligence, executive reporting, and data quality, now expanding into Analytics Engineering, Microsoft Power Platform, Python automation, and AI-assisted solution design.",
   keywords: [
-    "Analytics Engineering",
     "Business Intelligence",
-    "Microsoft Power Platform",
+    "Business Intelligence Analyst",
     "Power BI",
+    "SQL",
+    "Python",
+    "Dashboard Development",
+    "Executive Reporting",
+    "Data Quality",
+    "Data Governance",
+    "KPI Reporting",
+    "Reporting Automation",
+    "Microsoft Power Platform",
     "Power Automate",
     "Power Apps",
     "Dataverse",
-    "Data Quality",
-    "Python Automation",
-    "Executive Reporting",
-    "Workflow Automation",
-    "AI-Assisted Business Solutions",
+    "Analytics Engineering",
+    "AI-Assisted Automation",
   ],
 };
 
 export const summary = {
-  heading: "Designing modern BI, one dependable layer at a time.",
+  heading: "Senior BI and analytics expertise, expanding deliberately into what's next.",
   body: [
-    "I'm a Business Intelligence and Analytics professional moving deliberately into analytics engineering, the Microsoft Power Platform, and AI-assisted solution design. My foundation is 5+ years of hands-on BI and data-quality work — executive reporting, data governance, dashboard delivery — and I'm building on it with configuration-driven data platforms, semantic modeling, and low-code application design.",
-    "I combine Business Intelligence, Analytics Engineering, Power Platform, Python automation, AI-assisted solution design, data quality, data governance, and executive reporting into a single practice: dependable data underneath, clear decisions on top.",
+    "I'm a Senior Business Intelligence Analyst with 5+ years of experience delivering executive reporting, dashboard development, data quality, data governance, KPI reporting, reporting automation, and operational analytics — mainly through SQL and Power BI, with Python and AI-assisted workflows supporting the work naturally as needed.",
+    "Alongside that core BI practice, I'm intentionally expanding into Analytics Engineering, the Microsoft Power Platform, and AI-assisted enterprise solutions — documented on this site as a developing specialization, not existing production experience.",
   ],
   notOverstating:
-    "I'm explicit throughout this site about what's shipped, what's in development, and what's a concept — see the status label on every project.",
+    "I'm explicit throughout this site about what's current BI experience, what's a developing specialization, and what's a concept — see the status label on every project and capability.",
+};
+
+export const careerDirection = {
+  eyebrow: "Career Direction",
+  title: "Where my Business Intelligence foundation is intentionally headed next.",
+  intro:
+    "This is direction, not current employment experience. My professional background is Business Intelligence and Analytics — the areas below are where I'm deliberately investing my learning and personal project time right now.",
+  items: [
+    { title: "Analytics Engineering", detail: "Dimensional modeling, validation frameworks, and configuration-driven data platforms, built on top of BI reporting fundamentals." },
+    { title: "Microsoft Power Platform", detail: "Extending Power BI reporting into Power Automate, Power Apps, and Dataverse for governed, low-code business applications." },
+    { title: "Python Automation", detail: "Using Python to accelerate data preparation, validation, and reporting pipelines that previously required manual effort." },
+    { title: "AI-Assisted Business Solutions", detail: "Applying AI as an accelerant for solution design, with human review built into every workflow." },
+    { title: "Enterprise Data Quality", detail: "Formalizing the data-quality and governance discipline from my BI work into repeatable, documented frameworks." },
+    { title: "Workflow Automation", detail: "Reducing manual, spreadsheet-driven processes through structured, auditable automation." },
+    { title: "Data Governance", detail: "Single, agreed KPI definitions and clear ownership — the foundation every reporting layer above it depends on." },
+  ],
 };
 
 export const journey = [
@@ -73,44 +95,48 @@ export const experience: ExperienceEntry[] = [
     dates: "Sep 2025 – Jul 2026",
     bullets: [
       "Led end-to-end Salesforce customer-entity validation, strengthening data governance, mapping integrity, and structural control across the Atlassian engagement.",
-      "Raised team data accuracy to a consistent 98% through cross-functional calibration, structured coaching, and performance feedback.",
-      "Diagnosed systemic discrepancies through QA audits and root-cause analysis, enabling faster remediation and more consistent reporting.",
-      "Designed structured quality assurance workflows and reporting standards that improved consistency and stakeholder confidence.",
+      "Built Power BI monitoring views and SQL-based validation queries that supported a rise in team data accuracy to a consistent 98%, through cross-functional calibration, structured coaching, and performance feedback.",
+      "Diagnosed systemic discrepancies through SQL-based QA audits and root-cause analysis, using Python-assisted scripts to speed up recurring validation checks and enable faster remediation.",
+      "Designed structured quality assurance workflows and Excel-based reporting standards that improved consistency and stakeholder confidence.",
+      "Aligned project stakeholders on data-quality priorities, CRM health standards, and process-improvement actions.",
     ],
-    tech: ["Salesforce", "CRM Validation", "QA Auditing", "Data Governance"],
+    tech: ["Power BI", "SQL", "Python", "Excel", "CRM Data Quality", "Data Governance"],
   },
   {
     title: "Senior Data Analyst",
     company: "Vector Outsourcing Solutions Philippines Inc.",
     dates: "May 2024 – Aug 2025",
     bullets: [
-      "Engineered daily, weekly, and monthly KPI reporting that improved consistency and enabled faster operational decisions.",
-      "Automated manual Excel and internal-system workflows, reducing reporting effort and shortening turnaround time.",
-      "Converted medical-billing, insurance, and accounts-receivable data into financial and operational reporting for management planning.",
+      "Engineered daily, weekly, and monthly KPI reporting in Power BI and Excel, with DAX-based measures, that improved consistency and enabled faster operational decisions.",
+      "Used Python and Google Apps Script to automate recurring reporting and reduce manual consolidation across Excel and Google Workspace workflows, shortening turnaround time and limiting processing error.",
+      "Applied SQL-based analysis to convert medical-billing, insurance, and accounts-receivable data into financial and operational reporting for management planning.",
+      "Partnered with QA and operations leaders to validate performance data, identify trends, and drive process improvements.",
     ],
-    tech: ["Advanced Excel", "Reporting Automation", "KPI Monitoring"],
+    tech: ["Power BI", "DAX", "SQL", "Python", "Excel", "Google Apps Script", "Google Workspace"],
   },
   {
     title: "Business Analyst",
     company: "JACCS Finance Philippines Corp.",
     dates: "Feb 2023 – Apr 2024",
     bullets: [
-      "Analyzed financial and industry KPIs to surface trends and support revenue-oriented business propositions.",
-      "Advised C-suite leaders through executive reports, competitive research, and strategic presentation decks.",
-      "Standardized cross-department data collection by coordinating stakeholders around shared business goals.",
+      "Analyzed financial and industry KPIs using SQL-based queries and Excel models to surface trends and support revenue-oriented business propositions.",
+      "Built supporting Power BI dashboards and reporting views used to advise C-suite leaders through executive reports, competitive research, and strategic presentation decks.",
+      "Used Python for lightweight data preparation and analysis where it sped up recurring reporting tasks.",
+      "Standardized cross-department data collection by coordinating stakeholders around shared business goals and reporting requirements.",
     ],
-    tech: ["Excel", "Google Sheets", "Financial Analysis", "Executive Presentations"],
+    tech: ["Power BI", "SQL", "Python", "Excel", "Financial Analytics", "Process Improvement"],
   },
   {
     title: "AI Data Quality Specialist",
     company: "Appen",
     dates: "Apr 2021 – Feb 2023",
     bullets: [
-      "Evaluated AI training datasets, metadata quality, and search relevance across multiple AI programs, ensuring dataset integrity and consistent operational quality.",
-      "Performed structured data validation, metadata auditing, and quality assurance using established evaluation frameworks, translating findings into quality reports and improvement recommendations.",
+      "Evaluated AI training datasets, metadata quality, and search relevance across multiple AI programs using SQL-based queries and Python-assisted validation scripts, ensuring dataset integrity and consistent operational quality.",
+      "Performed structured data validation, metadata auditing, and quality assurance using established evaluation frameworks, translating findings into Excel and Google Sheets quality reports and improvement recommendations for program stakeholders.",
+      "Analyzed quality trends, identified recurring issues, and collaborated with cross-functional stakeholders using Google Workspace to improve annotation consistency and operational efficiency.",
       "Supported data governance initiatives through root-cause analysis and continuous process improvement — early groundwork for the data-quality and BI work that followed.",
     ],
-    tech: ["AI Data Operations", "Metadata QA", "Data Validation", "Root-Cause Analysis"],
+    tech: ["SQL", "Python", "Excel", "Google Workspace", "AI Data Quality"],
   },
 ];
 

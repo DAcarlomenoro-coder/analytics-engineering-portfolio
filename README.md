@@ -1,8 +1,12 @@
-# Analytics Engineering & Power Platform Portfolio
+# Senior BI & Analytics Portfolio (Version B)
 
-Carlo Menoro's Version B portfolio — Analytics Engineering, Microsoft Power
-Platform, Python automation, and AI-assisted solution design. This is a
-standalone site, separate from the Version A (BI-leadership) portfolio.
+Carlo Menoro's Version B portfolio. Official positioning: **Senior Business
+Intelligence Analyst & Analytics Specialist** — 5+ years of BI, executive
+reporting, and data-quality experience, with Analytics Engineering, the
+Microsoft Power Platform, Python automation, and AI-assisted solution
+design positioned explicitly as a developing specialization / career
+direction, not current professional experience. This is a standalone site,
+separate from the Version A (BI-leadership) portfolio.
 
 Stack: Next.js (App Router) · TypeScript · Tailwind CSS v4. Single-page site,
 one route (`/`), content-driven from `lib/content.ts`.
@@ -33,7 +37,7 @@ render (falls back to a neutral gray) but won't get its own color unless you
 add one to `STYLES` in that file.
 
 To update the resume file: replace
-`public/resume/Carlo_Menoro_Analytics_Engineering_Resume.pdf` with the new
+`public/resume/Carlo_Menoro_Senior_BI_Analytics_Resume.pdf` with the new
 PDF, keeping the exact same filename — every "View/Download Resume" link on
 the site points to that path via `site.resumeFile` in `lib/content.ts`.
 
