@@ -15,7 +15,7 @@ export const site = {
   github: "https://github.com/DAcarlomenoro-coder",
   linkedin: null as string | null, // no LinkedIn URL has been provided — omit until one exists
   resumeFile: "/resume/Carlo_Menoro_Senior_BI_Analytics_Resume.pdf",
-  siteUrl: "https://analytics-engineering.carlomenoro.dev", // placeholder — update once a real domain/deployment URL exists
+  siteUrl: "https://analytics-engineering-portfolio-one.vercel.app",
   versionANote:
     "This site is the technical companion to my primary Business Intelligence resume and portfolio (Version A), which covers BI leadership, governance, and executive reporting in more depth. This site adds detail on where I'm expanding next — Analytics Engineering, the Microsoft Power Platform, and AI-assisted solution design.",
 };
