@@ -54,10 +54,9 @@ do this automatically. Shortest path, in order of preference:
 ### Option 1 — Vercel (recommended, easiest for Next.js)
 
 ```bash
-npm install -g vercel   # if you don't already have it
-vercel login             # opens a browser to authenticate
-vercel                   # from this directory; follow the prompts
-vercel --prod             # promote to your production URL
+npx vercel login   # opens a browser to authenticate — no install needed
+npx vercel          # from this directory; follow the prompts
+npx vercel --prod   # promote to your production URL
 ```
 
 Or without the CLI: push this repo to GitHub (see below), then at
@@ -67,10 +66,9 @@ Next.js and deploys with no configuration needed.
 ### Option 2 — Netlify
 
 ```bash
-npm install -g netlify-cli
-netlify login
-netlify init    # from this directory; choose "Next.js" when prompted
-netlify deploy --prod
+npx netlify-cli login
+npx netlify-cli init    # from this directory; choose "Next.js" when prompted
+npx netlify-cli deploy --prod
 ```
 
 ### Option 3 — GitHub Pages
@@ -87,11 +85,12 @@ This directory is already a local git repo with an initial commit. To push
 it to GitHub:
 
 ```bash
+brew install gh    # if you don't have the GitHub CLI yet (checked: not installed on this machine)
+gh auth login
 gh repo create analytics-engineering-portfolio --public --source=. --remote=origin --push
 ```
 
-(Requires the `gh` CLI, already authenticated — run `gh auth login` first if
-not.) Or manually: create an empty repo on github.com, then:
+Or manually — no `gh` CLI needed: create an empty repo on github.com, then:
 
 ```bash
 git remote add origin https://github.com/<your-username>/analytics-engineering-portfolio.git
