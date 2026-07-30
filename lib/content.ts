@@ -13,7 +13,7 @@ export const site = {
   email: "plukcarlo.menoro@gmail.com",
   github: "https://github.com/DAcarlomenoro-coder",
   linkedin: null as string | null, // no LinkedIn URL has been provided — omit until one exists
-  resumeFile: "/resume/Carlo_Menoro_Analytics_Engineering_Resume.pdf",
+  resumeFile: "/Carlo_Menoro_Analytics_Engineering_Resume.pdf",
   siteUrl: "https://analytics-engineering.carlomenoro.dev", // placeholder — update once a real domain/deployment URL exists
   versionANote:
     "This site is the technical companion to my Business Intelligence–focused resume and portfolio (Version A), which covers BI leadership, governance, and executive reporting in more depth. This site focuses on analytics engineering, the Microsoft Power Platform, and AI-assisted solution design.",

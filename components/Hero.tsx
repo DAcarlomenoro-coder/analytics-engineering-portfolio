@@ -17,13 +17,15 @@ export function Hero() {
         <div className="mt-9 flex flex-wrap items-center gap-3">
           <a
             href={site.resumeFile}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-strong"
           >
             View Resume
           </a>
           <a
             href={site.resumeFile}
-            download
+            download="Carlo_Menoro_Analytics_Engineering_Resume.pdf"
             className="rounded-md border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-surface"
           >
             Download Resume

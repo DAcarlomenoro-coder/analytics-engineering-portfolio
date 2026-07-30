@@ -32,7 +32,7 @@ export function Nav() {
           ))}
           <a
             href={site.resumeFile}
-            download
+            download="Carlo_Menoro_Analytics_Engineering_Resume.pdf"
             className="rounded-md bg-accent px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-strong"
           >
             Download Resume
@@ -75,7 +75,7 @@ export function Nav() {
             <li>
               <a
                 href={site.resumeFile}
-                download
+                download="Carlo_Menoro_Analytics_Engineering_Resume.pdf"
                 className="mt-1 block rounded-md bg-accent px-2 py-2 text-center text-sm font-medium text-white"
                 onClick={() => setOpen(false)}
               >
