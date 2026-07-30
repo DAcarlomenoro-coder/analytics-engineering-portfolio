@@ -44,7 +44,7 @@ npm run build   # production build — must succeed with no errors
 npm run lint     # ESLint — should report no issues
 ```
 
-Both were verified clean as of this project's initial commit.
+Both verified clean again on re-check: `npm run build` succeeds (static output for `/` and `/_not-found`), `npm run lint` reports no issues, and every internal anchor / external link (GitHub repo, live demo, resume PDF route) resolves.
 
 ## Deployment
 
@@ -85,8 +85,7 @@ This directory is already a local git repo with an initial commit. To push
 it to GitHub:
 
 ```bash
-brew install gh    # if you don't have the GitHub CLI yet (checked: not installed on this machine)
-gh auth login
+gh auth login    # gh CLI is already installed on this machine — just needs your login
 gh repo create analytics-engineering-portfolio --public --source=. --remote=origin --push
 ```
 
