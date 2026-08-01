@@ -16,6 +16,9 @@ export const site = {
   linkedin: null as string | null, // no LinkedIn URL has been provided — omit until one exists
   resumeFile: "/resume/Carlo_Menoro_Senior_BI_Analytics_Resume.pdf",
   siteUrl: "https://analytics-engineering-portfolio-one.vercel.app",
+  // No headshot has been provided yet — Avatar renders initials until a real
+  // photo is added at public/photo.jpg (then set this to "/photo.jpg").
+  photo: null as string | null,
   versionANote:
     "This site is the technical companion to my primary Business Intelligence resume and portfolio (Version A), which covers BI leadership, governance, and executive reporting in more depth. This site adds detail on where I'm expanding next — Analytics Engineering, the Microsoft Power Platform, and AI-assisted solution design.",
 };
@@ -191,9 +194,29 @@ export const powerPlatform = {
   ],
 };
 
+export type ProjectCategory =
+  | "SQL"
+  | "Power BI"
+  | "Python"
+  | "Analytics Engineering"
+  | "AI Automation"
+  | "Business Intelligence"
+  | "Data Engineering";
+
+export const PROJECT_CATEGORIES: ProjectCategory[] = [
+  "SQL",
+  "Power BI",
+  "Python",
+  "Analytics Engineering",
+  "AI Automation",
+  "Business Intelligence",
+  "Data Engineering",
+];
+
 export type Project = {
   title: string;
   status: Status;
+  categories: ProjectCategory[];
   note?: string;
   description: string;
   focus: string[];
@@ -204,6 +227,7 @@ export const featuredProjects: Project[] = [
   {
     title: "Enterprise Sales Intelligence Platform (ESIP)",
     status: "In Development",
+    categories: ["Analytics Engineering", "Data Engineering", "Power BI"],
     description:
       "A configuration-driven enterprise sales analytics platform built on a large-scale synthetic B2B manufacturing dataset, using Kimball dimensional modeling. Completed: the dataset architecture, dimensional model, validation framework, documentation, and supporting BI reporting work. The broader platform — the full semantic and reporting layer across all of it — remains in development.",
     focus: [
@@ -219,6 +243,7 @@ export const featuredProjects: Project[] = [
   {
     title: "Executive Sales Performance Dashboard",
     status: "Complete",
+    categories: ["Power BI", "Business Intelligence"],
     description:
       "A finished, standalone Power BI deliverable built from the ESIP dataset — sales, profitability, product, and regional performance with a reusable DAX measure library, executive KPI cards, and drill-through analysis. Distinct from the broader ESIP platform above, which is still in development as a whole.",
     focus: ["Power BI", "DAX", "Executive dashboards", "KPI reporting", "Sales analytics", "Operational reporting"],
@@ -226,6 +251,7 @@ export const featuredProjects: Project[] = [
   {
     title: "Commercial Analytics Dashboard",
     status: "Complete",
+    categories: ["Python", "Business Intelligence"],
     note: "Originally developed as the Grace & Stella Commercial Intelligence Platform.",
     description:
       "An executive dashboard analyzing revenue, gross profit, promotions, channels, products, and country performance — deployed as a live, interactive Streamlit application using portfolio-safe synthetic data. No private client, customer, or employer information is displayed.",
@@ -238,6 +264,7 @@ export const featuredProjects: Project[] = [
   {
     title: "AI-Assisted Product Information Management Platform",
     status: "Architecture Complete",
+    categories: ["AI Automation", "Data Engineering"],
     note: "Prototype planned next.",
     description:
       "A designed (not yet built) system for AI-assisted product enrichment from supplier photos, with a human-in-the-loop review and approval workflow, product governance, and full audit history. Solution architecture, data model, and integration design are complete; a mocked-data prototype is the next planned phase — no application code exists yet.",
@@ -255,6 +282,7 @@ export const featuredProjects: Project[] = [
 export const powerPlatformConcept: Project = {
   title: "Data Quality Review & Approval Platform",
   status: "Planned Prototype",
+  categories: ["Analytics Engineering", "Data Engineering", "AI Automation"],
   description:
     "A conceptual architecture — not a deployed or production solution — for an enterprise data-quality review platform built entirely on the Microsoft Power Platform, connected to Python validation services already proven in my other projects.",
   focus: ["Data quality review", "Business rules", "Guided approvals", "Audit trail", "Executive reporting"],
@@ -272,6 +300,7 @@ export const additionalCaseStudies = [
   {
     title: "Healthcare Revenue Dashboard",
     status: "Implemented Workflow" as const,
+    categories: ["Business Intelligence"] as ProjectCategory[],
     description:
       "Automated financial reconciliation and balance-monitoring system for patient-ledger monitoring, revenue reconciliation, adjustments, and exception review.",
     tech: ["Google Sheets", "Google Apps Script", "Excel", "Reporting Automation"],
@@ -279,6 +308,7 @@ export const additionalCaseStudies = [
   {
     title: "Operational Reporting Automation",
     status: "Implemented Workflow" as const,
+    categories: ["Data Engineering", "Business Intelligence"] as ProjectCategory[],
     description:
       "A governed ETL pipeline (Google Sheets + Apps Script) moving synthetic commerce data through validation into clean analytical tables, deterministic KPI aggregation, and a 5-page interactive dashboard. 43 of 43 automated tests passing.",
     tech: ["Google Apps Script", "Google Sheets", "Workflow Automation"],
@@ -286,6 +316,7 @@ export const additionalCaseStudies = [
   {
     title: "SQL Business Analytics Portfolio",
     status: "Portfolio Analysis Project" as const,
+    categories: ["SQL", "Business Intelligence"] as ProjectCategory[],
     description:
       "PostgreSQL analysis for business performance and decision support — data validation, customer segmentation, trend queries, and ranking logic using CTEs and window functions.",
     tech: ["SQL", "PostgreSQL", "CTEs", "Window Functions"],
@@ -352,24 +383,212 @@ export const techStack = [
   { category: "AI-Assisted Development", items: ["Claude", "ChatGPT", "AI-Assisted Software Engineering Practices"] },
 ];
 
-// Pulled verbatim from Resume Version B — do not add certifications not on the resume.
-export const certifications = [
+// ============================================================
+// Professional Credentials — Certifications / Professional Learning / Badges
+// ============================================================
+// Every field here must be real. Never invent a credential ID or
+// verification URL — leave the field undefined and the UI shows a plain
+// "not yet published" note instead of a fake-looking link. Certificate/badge
+// images are not generated — drop real files at
+// public/certifications/<slug>/{badge,certificate}.png and they'll render;
+// until then the UI shows a clearly-labeled placeholder, never a fabricated
+// certificate graphic.
+
+export type Certification = {
+  slug: string;
+  badgeEmoji: string;
+  name: string;
+  provider: string;
+  issued: string;
+  validUntil?: string;
+  credentialId?: string;
+  verificationUrl?: string;
+  summary: string;
+  skillsValidated: string[];
+  whatLearned: string;
+  realWorldApplication: string;
+  relatedProjects: string[]; // Project titles — matched against featuredProjects/additionalCaseStudies
+};
+
+export const certifications: Certification[] = [
   {
-    category: "In Progress",
-    items: ["Google Advanced Data Analytics Professional Certificate", "DataCamp SQL & Analytics Training"],
-  },
-  {
-    category: "Completed",
-    items: ["IBM Business Intelligence Professional Certificate — Completed, Jul 2026", "Data Engineering Philippines Scholar — 2025"],
-  },
-  {
-    category: "Professional Development",
-    items: [
-      "Enterprise BI Platform Development",
-      "Advanced Power BI Development",
-      "Enterprise Analytics Engineering",
-      "AI Solution Architecture",
-      "Python Automation Projects",
+    slug: "sql-associate",
+    badgeEmoji: "🏅",
+    name: "SQL Associate",
+    provider: "DataCamp",
+    issued: "August 1, 2026",
+    validUntil: "July 31, 2028",
+    summary:
+      "A practical, hands-on certification requiring live SQL problem-solving under exam conditions — not multiple-choice recall.",
+    skillsValidated: [
+      "SQL",
+      "PostgreSQL",
+      "Data Cleaning",
+      "Data Transformation",
+      "Aggregations",
+      "JOINs",
+      "Filtering",
+      "Business Reporting",
+      "Relational Databases",
+      "Analytical Thinking",
     ],
+    whatLearned:
+      "Writing and reasoning through SQL under exam conditions — joining and filtering relational data, cleaning and transforming it, and building aggregations that answer a specific business question rather than just returning a technically correct result set.",
+    realWorldApplication:
+      "The same SQL discipline shows up directly in my Professional Experience — QA validation queries and root-cause analysis at N2S, and the SQL-based reporting behind KPI and financial analysis at Vector and JACCS.",
+    relatedProjects: ["SQL Business Analytics Portfolio", "Executive Sales Performance Dashboard"],
   },
+  {
+    slug: "ibm-bi-essentials",
+    badgeEmoji: "📊",
+    name: "IBM Business Intelligence (BI) Essentials",
+    provider: "IBM (via Coursera)",
+    issued: "July 21, 2026",
+    summary:
+      "Covers what Business Intelligence is and how organizations turn raw data into decisions — the conceptual foundation underneath the dashboards I build.",
+    skillsValidated: [
+      "Business Intelligence",
+      "Data-driven Decision Making",
+      "Reporting",
+      "Dashboards",
+      "KPI Development",
+      "Analytics Fundamentals",
+      "Business Reporting Concepts",
+    ],
+    whatLearned:
+      "How BI programs are structured end to end — from defining KPIs and reporting requirements through dashboard design and decision support — and the shared vocabulary to talk with stakeholders about BI maturity, not just build the reports.",
+    realWorldApplication:
+      "Directly underneath my day-to-day work: KPI design and executive reporting at N2S, Vector, and JACCS, and the governance/KPI-definition discipline behind the Enterprise Sales Intelligence Platform.",
+    relatedProjects: ["Enterprise Sales Intelligence Platform (ESIP)", "Executive Sales Performance Dashboard"],
+  },
+  {
+    slug: "ai-for-data-analysts",
+    badgeEmoji: "🤖",
+    name: "AI for Data Analysts",
+    provider: "DataCamp",
+    issued: "July 9, 2026",
+    summary:
+      "How AI tools accelerate a modern analytics workflow — prompt-driven exploration, drafting, and reporting — without replacing the analyst's own judgment.",
+    skillsValidated: [
+      "AI-assisted Analytics",
+      "Prompt Engineering",
+      "Productivity",
+      "Data Analysis",
+      "Automation",
+      "AI-assisted Reporting",
+      "Business Intelligence using AI",
+    ],
+    whatLearned:
+      "Practical prompt-engineering patterns for analytics work — using AI to accelerate data exploration, drafting, and reporting, and where to keep a human in the loop rather than trust AI output blindly.",
+    realWorldApplication:
+      "The same discipline behind every AI-assisted design on this site — the AI-Assisted PIM Platform and the Power Platform Solution Concept both keep a human-in-the-loop review step by design, not as an afterthought.",
+    relatedProjects: ["AI-Assisted Product Information Management Platform", "Data Quality Review & Approval Platform"],
+  },
+];
+
+export type FutureCredential = { provider: string };
+// Reserved slots — intentionally not started yet. Move an entry out of this
+// list and into `certifications` above once it's actually earned.
+export const futureCredentials: FutureCredential[] = [
+  { provider: "Microsoft" },
+  { provider: "Azure" },
+  { provider: "Power BI" },
+  { provider: "Microsoft Fabric" },
+  { provider: "AWS" },
+  { provider: "Snowflake" },
+  { provider: "dbt" },
+  { provider: "Databricks" },
+  { provider: "Google" },
+  { provider: "Coursera" },
+  { provider: "Tableau" },
+  { provider: "Oracle" },
+  { provider: "PostgreSQL" },
+  { provider: "LinkedIn Learning" },
+  { provider: "Cisco" },
+];
+
+// 📚 Professional Learning — programs and self-directed tracks, distinct from
+// formal certifications above.
+export const professionalLearning = [
+  "Data Engineering Philippines Scholar — 2025",
+  "Enterprise BI Platform Development (self-directed)",
+  "Advanced Power BI Development (self-directed)",
+  "Enterprise Analytics Engineering (self-directed)",
+  "AI Solution Architecture (self-directed)",
+  "Python Automation Projects (self-directed)",
+];
+
+export const professionalLearningFuture = [
+  "Coursera Professional Certificates",
+  "DataCamp Skill Tracks",
+  "Microsoft Learn Achievements",
+  "IBM Learning Paths",
+];
+
+// 🏅 Badges & Achievements
+export const badgesAchievements = [{ name: "SQL Associate Badge", note: "DataCamp, August 2026" }];
+
+export const badgesAchievementsFuture = [
+  "Microsoft Applied Skills",
+  "GitHub Achievements",
+  "Kaggle",
+  "Hackathons or speaking engagements",
+];
+
+// ============================================================
+// Learning Roadmap
+// ============================================================
+
+export const roadmap = {
+  completed: [
+    { title: "AI for Data Analysts", provider: "DataCamp", date: "Jul 2026" },
+    { title: "IBM BI Essentials", provider: "IBM via Coursera", date: "Jul 2026" },
+    { title: "SQL Associate", provider: "DataCamp", date: "Aug 2026" },
+  ],
+  inProgress: [
+    { title: "Microsoft Power BI", detail: "Deepening semantic modeling and DAX beyond current reporting work" },
+    { title: "Microsoft Fabric", detail: "Understanding the unified data platform Power BI now sits inside" },
+    { title: "Python", detail: "Extending automation and validation scripting beyond current ad hoc use" },
+  ],
+  planned: [
+    { title: "Azure Data Engineering", detail: "" },
+    { title: "dbt", detail: "" },
+    { title: "Snowflake", detail: "" },
+    { title: "Databricks", detail: "" },
+    { title: "Analytics Engineering", detail: "A formal credential to back the developing specialization already documented on this site" },
+  ],
+};
+
+// ============================================================
+// Why Work With Me (recruiter section)
+// ============================================================
+
+export const whyWorkWithMe = [
+  { title: "Business-first thinking", detail: "Every dashboard and query starts from the business question — KPI design at N2S, Vector, and JACCS was always in service of a specific decision, not a technical exercise." },
+  { title: "SQL expertise", detail: "DataCamp SQL Associate–certified, with SQL-based validation and reporting work across every role since 2021." },
+  { title: "Business Intelligence", detail: "5+ years building executive dashboards and reporting layers people actually rely on, backed by IBM BI Essentials." },
+  { title: "Reporting automation", detail: "Replaced manual Excel and internal-system workflows with automated reporting at Vector — measured in hours saved, not just cleaner spreadsheets." },
+  { title: "Dashboard development", detail: "Power BI and Streamlit dashboards shipped from KPI definition through to a deployed, usable interface — not just static exports." },
+  { title: "AI-assisted analytics", detail: "AI for Data Analysts–certified, and I use AI daily to accelerate analysis while keeping a human review step in every workflow." },
+  { title: "Data quality", detail: "Led enterprise-level Salesforce data validation at N2S, raising team data accuracy to a sustained 98%." },
+  { title: "Process improvement", detail: "Structured QA workflows and reporting standards that replaced ad hoc, inconsistent processes at every stop." },
+  { title: "Stakeholder communication", detail: "Advised C-suite leaders directly at JACCS through executive reports and strategic presentations." },
+  { title: "Continuous learning", detail: "Three certifications completed within weeks of each other while working full-time — the Learning Roadmap on this site is kept current, not a one-time snapshot." },
+  { title: "Leadership", detail: "Led enterprise-level data validation initiatives and coached team members to a consistent, measurable accuracy standard." },
+];
+
+// ============================================================
+// Blog — topics only. No article bodies exist yet; don't fabricate them.
+// ============================================================
+
+export type BlogTopic = { title: string; teaser: string };
+
+export const blogTopics: BlogTopic[] = [
+  { title: "How I Earned SQL Associate", teaser: "What the DataCamp SQL Associate exam actually tests, and how I prepared for it." },
+  { title: "My Business Intelligence Journey", teaser: "From ad hoc reporting to structured BI — how the last five years actually went." },
+  { title: "Using AI as a Data Analyst", teaser: "Where AI genuinely speeds up analytics work, and where it doesn't." },
+  { title: "Learning PostgreSQL", teaser: "Notes from going deeper into PostgreSQL specifically, beyond generic SQL." },
+  { title: "Building Dashboards with Power BI", teaser: "A walkthrough of how I actually build a Power BI report, start to finish." },
+  { title: "Preparing for Microsoft Fabric", teaser: "What I'm learning as Power BI reporting moves into the wider Fabric platform." },
+  { title: "Transitioning Toward Analytics Engineering", teaser: "Why I'm building this specialization deliberately, and what's still missing." },
 ];

@@ -1,56 +1,34 @@
 @import "tailwindcss";
 
+/*
+ * Deliberate single-theme design (dark) — matching the Vercel / Linear /
+ * GitHub / Stripe reference points this portfolio is modeled on. Not a
+ * fallback for a missing light mode; the dark palette below is the primary,
+ * only authored theme.
+ */
 :root {
-  /* Enterprise analytics palette — navy dominant, blue = BI, cyan = sparing accent */
-  --navy: #0b1f3a;
-  --background: #f8fafc;
-  --card: #ffffff;
-  --surface: #eef2f7;
-  --surface-strong: #e4e9f1;
-  --foreground: #1e293b;
-  --muted: #64748b;
-  --border: #cbd5e1;
-  --accent: #2563eb;
-  --accent-strong: #1d4ed8;
-  --accent-soft: #dbeafe;
-  --cyan: #06b6d4;
-  --cyan-soft: #cffafe;
+  --navy: #05070d;
+  --background: #05070d;
+  --card: #0b0f1a;
+  --surface: #0d1220;
+  --surface-strong: #131a2c;
+  --foreground: #eef1f8;
+  --muted: #8892a8;
+  --border: #1b2233;
+  --accent: #5b8cf5;
+  --accent-strong: #8ab0ff;
+  --accent-soft: #12203f;
+  --cyan: #22d3ee;
+  --cyan-soft: #0b2b34;
 
-  --status-complete-bg: #e8f5ee;
-  --status-complete-fg: #17703f;
-  --status-development-bg: #fdf1e2;
-  --status-development-fg: #9a5b0a;
-  --status-architecture-bg: #dbeafe;
-  --status-architecture-fg: #1d4ed8;
-  --status-planned-bg: #eef0f4;
-  --status-planned-fg: #4b5468;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --navy: #0b1f3a;
-    --background: #0a1424;
-    --card: #0f1b30;
-    --surface: #0d1830;
-    --surface-strong: #142440;
-    --foreground: #e7edf7;
-    --muted: #93a0b8;
-    --border: #22314d;
-    --accent: #5b8cf5;
-    --accent-strong: #8ab0ff;
-    --accent-soft: #142a4d;
-    --cyan: #22d3ee;
-    --cyan-soft: #0b2b34;
-
-    --status-complete-bg: #10281c;
-    --status-complete-fg: #5fd696;
-    --status-development-bg: #2c2109;
-    --status-development-fg: #f0a83e;
-    --status-architecture-bg: #142a4d;
-    --status-architecture-fg: #8ab0ff;
-    --status-planned-bg: #171d30;
-    --status-planned-fg: #a6adc4;
-  }
+  --status-complete-bg: #0f2a1e;
+  --status-complete-fg: #5fd696;
+  --status-development-bg: #2c2109;
+  --status-development-fg: #f0a83e;
+  --status-architecture-bg: #12203f;
+  --status-architecture-fg: #8ab0ff;
+  --status-planned-bg: #161c2c;
+  --status-planned-fg: #9aa3ba;
 }
 
 @theme inline {
@@ -75,6 +53,10 @@
   border-color: var(--border);
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -86,6 +68,28 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--cyan);
   outline-offset: 2px;
+}
+
+/* Subtle ambient grid — the one deliberate atmospheric touch, restrained
+   and static (no animation) so it reads as texture, not decoration.
+   Rendered on a ::before layer (not the element's own background) so the
+   fade mask only affects the grid pattern, never the text content on top. */
+.bg-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.bg-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 60%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 90%);
 }
