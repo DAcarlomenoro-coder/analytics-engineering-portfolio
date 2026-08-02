@@ -386,23 +386,27 @@ export const techStack = [
 // ============================================================
 // Professional Credentials — Certifications / Professional Learning / Badges
 // ============================================================
-// Every field here must be real. Never invent a credential ID or
-// verification URL — leave the field undefined and the UI shows a plain
-// "not yet published" note instead of a fake-looking link. Certificate/badge
-// images are not generated — drop real files at
-// public/certifications/<slug>/{badge,certificate}.png and they'll render;
-// until then the UI shows a clearly-labeled placeholder, never a fabricated
-// certificate graphic.
+// Every field here is verified against the actual certificate PDF/badge
+// files in public/credentials/<slug>/ — cross-checked, for the ones with a
+// public verification link, against the issuer's own verification page.
+// Never invent a credential ID or verification URL for a *future* entry —
+// those stay in futureCredentials with no dates/IDs until actually earned.
+
+export type CredentialClassification = "Certification" | "Professional Learning" | "Badge and Achievement";
 
 export type Certification = {
   slug: string;
   badgeEmoji: string;
   name: string;
   provider: string;
+  classification: CredentialClassification[];
   issued: string;
   validUntil?: string;
   credentialId?: string;
   verificationUrl?: string;
+  badgeImage?: string;
+  certificateFile?: string;
+  certificatePreview?: string;
   summary: string;
   skillsValidated: string[];
   whatLearned: string;
@@ -412,28 +416,34 @@ export type Certification = {
 
 export const certifications: Certification[] = [
   {
-    slug: "sql-associate",
+    slug: "datacamp-sql-associate",
     badgeEmoji: "🏅",
     name: "SQL Associate",
     provider: "DataCamp",
+    classification: ["Certification", "Badge and Achievement"],
     issued: "August 1, 2026",
     validUntil: "July 31, 2028",
+    credentialId: "SQA0017590201915",
+    badgeImage: "/credentials/datacamp-sql-associate/badge.png",
+    certificateFile: "/credentials/datacamp-sql-associate/certificate.pdf",
+    certificatePreview: "/credentials/datacamp-sql-associate/certificate-preview.png",
     summary:
-      "A practical, hands-on certification requiring live SQL problem-solving under exam conditions — not multiple-choice recall.",
+      "A practical SQL certification involving hands-on assessment work — live problem-solving against relational data, not multiple-choice recall.",
     skillsValidated: [
       "SQL",
       "PostgreSQL",
       "Data Cleaning",
-      "Data Transformation",
+      "Data Type Conversion",
+      "Categorical-data Standardization",
       "Aggregations",
-      "JOINs",
       "Filtering",
+      "Multi-table JOINs",
+      "Relational Database Analysis",
       "Business Reporting",
-      "Relational Databases",
-      "Analytical Thinking",
+      "Analytical Problem-Solving",
     ],
     whatLearned:
-      "Writing and reasoning through SQL under exam conditions — joining and filtering relational data, cleaning and transforming it, and building aggregations that answer a specific business question rather than just returning a technically correct result set.",
+      "Writing and reasoning through SQL under exam conditions — cleaning and standardizing relational data, converting data types, joining across multiple tables, filtering, and building aggregations that answer a specific business question rather than just returning a technically correct result set.",
     realWorldApplication:
       "The same SQL discipline shows up directly in my Professional Experience — QA validation queries and root-cause analysis at N2S, and the SQL-based reporting behind KPI and financial analysis at Vector and JACCS.",
     relatedProjects: ["SQL Business Analytics Portfolio", "Executive Sales Performance Dashboard"],
@@ -441,19 +451,23 @@ export const certifications: Certification[] = [
   {
     slug: "ibm-bi-essentials",
     badgeEmoji: "📊",
-    name: "IBM Business Intelligence (BI) Essentials",
+    name: "Business Intelligence (BI) Essentials",
     provider: "IBM (via Coursera)",
+    classification: ["Professional Learning"],
     issued: "July 21, 2026",
+    credentialId: "8PU3O8X5O4NU",
+    verificationUrl: "https://coursera.org/verify/8PU3O8X5O4NU",
+    certificateFile: "/credentials/ibm-bi-essentials/certificate.pdf",
+    certificatePreview: "/credentials/ibm-bi-essentials/certificate-preview.png",
     summary:
-      "Covers what Business Intelligence is and how organizations turn raw data into decisions — the conceptual foundation underneath the dashboards I build.",
+      "An IBM course on Coursera covering what Business Intelligence is and how organizations turn raw data into decisions — the conceptual foundation underneath the dashboards I build. A single course, not a full IBM Professional Certificate.",
     skillsValidated: [
-      "Business Intelligence",
-      "Data-driven Decision Making",
+      "Business Intelligence Fundamentals",
+      "KPI Concepts",
       "Reporting",
       "Dashboards",
-      "KPI Development",
-      "Analytics Fundamentals",
-      "Business Reporting Concepts",
+      "Data-informed Decision-Making",
+      "BI Roles, Processes, and Business Applications",
     ],
     whatLearned:
       "How BI programs are structured end to end — from defining KPIs and reporting requirements through dashboard design and decision support — and the shared vocabulary to talk with stakeholders about BI maturity, not just build the reports.",
@@ -462,53 +476,59 @@ export const certifications: Certification[] = [
     relatedProjects: ["Enterprise Sales Intelligence Platform (ESIP)", "Executive Sales Performance Dashboard"],
   },
   {
-    slug: "ai-for-data-analysts",
+    slug: "datacamp-ai-for-data-analysts",
     badgeEmoji: "🤖",
     name: "AI for Data Analysts",
     provider: "DataCamp",
+    classification: ["Professional Learning"],
     issued: "July 9, 2026",
+    credentialId: "Statement of Accomplishment #48,589,544",
+    certificateFile: "/credentials/datacamp-ai-for-data-analysts/certificate.pdf",
+    certificatePreview: "/credentials/datacamp-ai-for-data-analysts/certificate-preview.png",
     summary:
-      "How AI tools accelerate a modern analytics workflow — prompt-driven exploration, drafting, and reporting — without replacing the analyst's own judgment.",
+      "A 4-hour DataCamp course on how AI tools accelerate a modern analytics workflow — prompt-driven exploration, drafting, and reporting — without replacing the analyst's own judgment. A course completion, not a professional certification.",
     skillsValidated: [
       "AI-assisted Analytics",
-      "Prompt Engineering",
-      "Productivity",
-      "Data Analysis",
-      "Automation",
-      "AI-assisted Reporting",
-      "Business Intelligence using AI",
+      "Generative AI in Analyst Workflows",
+      "Prompting for Analytical Work",
+      "Productivity and Workflow Support",
+      "Responsible Use of AI",
+      "Communicating and Refining Analytical Outputs",
     ],
     whatLearned:
-      "Practical prompt-engineering patterns for analytics work — using AI to accelerate data exploration, drafting, and reporting, and where to keep a human in the loop rather than trust AI output blindly.",
+      "Practical prompting patterns for analytics work — using generative AI to accelerate data exploration, drafting, and reporting, communicating and refining AI-assisted output, and where to keep a human in the loop rather than trust AI output blindly.",
     realWorldApplication:
       "The same discipline behind every AI-assisted design on this site — the AI-Assisted PIM Platform and the Power Platform Solution Concept both keep a human-in-the-loop review step by design, not as an afterthought.",
     relatedProjects: ["AI-Assisted Product Information Management Platform", "Data Quality Review & Approval Platform"],
   },
 ];
 
-export type FutureCredential = { provider: string };
+export type FutureCredential = { provider: string; status: "Planned" | "In Progress" | "Future Goal" };
 // Reserved slots — intentionally not started yet. Move an entry out of this
-// list and into `certifications` above once it's actually earned.
+// list and into `certifications` above once it's actually earned. Every
+// entry must carry a visible, unearned status — never shown bare next to a
+// completed credential.
 export const futureCredentials: FutureCredential[] = [
-  { provider: "Microsoft" },
-  { provider: "Azure" },
-  { provider: "Power BI" },
-  { provider: "Microsoft Fabric" },
-  { provider: "AWS" },
-  { provider: "Snowflake" },
-  { provider: "dbt" },
-  { provider: "Databricks" },
-  { provider: "Google" },
-  { provider: "Coursera" },
-  { provider: "Tableau" },
-  { provider: "Oracle" },
-  { provider: "PostgreSQL" },
-  { provider: "LinkedIn Learning" },
-  { provider: "Cisco" },
+  { provider: "Microsoft", status: "Future Goal" },
+  { provider: "Azure", status: "Future Goal" },
+  { provider: "Power BI", status: "Future Goal" },
+  { provider: "Microsoft Fabric", status: "Future Goal" },
+  { provider: "AWS", status: "Future Goal" },
+  { provider: "Snowflake", status: "Future Goal" },
+  { provider: "dbt", status: "Future Goal" },
+  { provider: "Databricks", status: "Future Goal" },
+  { provider: "Google", status: "Future Goal" },
+  { provider: "Coursera", status: "Future Goal" },
+  { provider: "Tableau", status: "Future Goal" },
+  { provider: "Oracle", status: "Future Goal" },
+  { provider: "PostgreSQL", status: "Future Goal" },
+  { provider: "LinkedIn Learning", status: "Future Goal" },
+  { provider: "Cisco", status: "Future Goal" },
 ];
 
-// 📚 Professional Learning — programs and self-directed tracks, distinct from
-// formal certifications above.
+// 📚 Additional Professional Learning — real, but not tied to a certificate
+// file/detail page (a scholarship program and self-directed practice, not
+// course completions with issuer-verified documents).
 export const professionalLearning = [
   "Data Engineering Philippines Scholar — 2025",
   "Enterprise BI Platform Development (self-directed)",
@@ -518,21 +538,18 @@ export const professionalLearning = [
   "Python Automation Projects (self-directed)",
 ];
 
-export const professionalLearningFuture = [
-  "Coursera Professional Certificates",
-  "DataCamp Skill Tracks",
-  "Microsoft Learn Achievements",
-  "IBM Learning Paths",
+export const professionalLearningFuture: FutureCredential[] = [
+  { provider: "Coursera Professional Certificates", status: "Future Goal" },
+  { provider: "DataCamp Skill Tracks", status: "In Progress" },
+  { provider: "Microsoft Learn Achievements", status: "Future Goal" },
+  { provider: "IBM Learning Paths", status: "Future Goal" },
 ];
 
-// 🏅 Badges & Achievements
-export const badgesAchievements = [{ name: "SQL Associate Badge", note: "DataCamp, August 2026" }];
-
-export const badgesAchievementsFuture = [
-  "Microsoft Applied Skills",
-  "GitHub Achievements",
-  "Kaggle",
-  "Hackathons or speaking engagements",
+export const badgesAchievementsFuture: FutureCredential[] = [
+  { provider: "Microsoft Applied Skills", status: "Future Goal" },
+  { provider: "GitHub Achievements", status: "Future Goal" },
+  { provider: "Kaggle", status: "Future Goal" },
+  { provider: "Hackathons or speaking engagements", status: "Future Goal" },
 ];
 
 // ============================================================
