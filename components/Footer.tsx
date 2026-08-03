@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/content";
+import { BLOG_ENABLED } from "@/lib/flags";
 
 const COLUMNS = [
   {
@@ -17,7 +18,7 @@ const COLUMNS = [
     links: [
       { href: "/certifications", label: "Credentials" },
       { href: "/roadmap", label: "Learning Roadmap" },
-      { href: "/blog", label: "Blog" },
+      ...(BLOG_ENABLED ? [{ href: "/blog", label: "Blog" }] : []),
     ],
   },
   {

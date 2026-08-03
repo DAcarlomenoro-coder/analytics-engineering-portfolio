@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site } from "@/lib/content";
+import { BLOG_ENABLED } from "@/lib/flags";
 
 const LINKS = [
   { href: "/about", label: "About" },
@@ -13,7 +14,7 @@ const LINKS = [
   { href: "/skills", label: "Skills" },
   { href: "/tech-stack", label: "Tech Stack" },
   { href: "/roadmap", label: "Roadmap" },
-  { href: "/blog", label: "Blog" },
+  ...(BLOG_ENABLED ? [{ href: "/blog", label: "Blog" }] : []),
   { href: "/contact", label: "Contact" },
 ];
 
