@@ -10,7 +10,7 @@ export default function CertificationsPage() {
       id="credentials"
       eyebrow="Professional Credentials"
       title="Certifications, professional learning, and badges — built to grow over a career, not a snapshot."
-      intro="Three real, verifiable certifications today. Every future-provider card below is an intentional placeholder — nothing is claimed until it's actually earned."
+      intro="Four real, verifiable certifications today. Every future-provider card below is an intentional placeholder — nothing is claimed until it's actually earned."
     >
       <CredentialsHub />
     </Section>

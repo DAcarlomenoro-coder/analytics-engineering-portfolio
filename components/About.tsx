@@ -9,6 +9,7 @@ export function About() {
           {summary.body.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>
           ))}
+          <p className="text-sm text-muted">{summary.credentialLine}</p>
           <p className="rounded-lg border border-border bg-surface p-4 text-sm text-muted">{site.versionANote}</p>
         </div>
 

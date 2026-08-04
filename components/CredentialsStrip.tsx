@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ClassificationTag } from "@/components/certifications/CertificationCard";
-import { certifications } from "@/lib/content";
+import { certifications, summary } from "@/lib/content";
 
 export function CredentialsStrip() {
-  const badge = certifications.find((c) => c.badgeImage);
+  const [primary, ...rest] = certifications;
 
   return (
     <section className="border-b border-border py-14">
@@ -17,13 +17,18 @@ export function CredentialsStrip() {
             View all credentials →
           </Link>
         </div>
+        <p className="mt-2 text-sm text-muted">{summary.credentialLine}</p>
 
         <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start">
-          {badge?.badgeImage ? (
-            <Link href={`/certifications/${badge.slug}`} className="shrink-0" aria-label={`${badge.name} — view credential details`}>
+          {primary?.badgeImage ? (
+            <Link
+              href={`/certifications/${primary.slug}`}
+              className="shrink-0"
+              aria-label={`${primary.name} — view credential details`}
+            >
               <Image
-                src={badge.badgeImage}
-                alt={`${badge.name} official badge`}
+                src={primary.badgeImage}
+                alt={`${primary.name} official badge`}
                 width={96}
                 height={96}
                 className="rounded-xl"
@@ -31,8 +36,8 @@ export function CredentialsStrip() {
             </Link>
           ) : null}
 
-          <div className="grid flex-1 gap-3 sm:grid-cols-3">
-            {certifications.map((c) => (
+          <div className="grid flex-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[primary, ...rest].map((c) => (
               <Link
                 key={c.slug}
                 href={`/certifications/${c.slug}`}

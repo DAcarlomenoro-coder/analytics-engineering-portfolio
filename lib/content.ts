@@ -26,10 +26,13 @@ export const site = {
 export const seo = {
   title: "Carlo Menoro — Senior Business Intelligence Analyst & Analytics Specialist",
   description:
-    "Portfolio of Carlo Menoro: 5+ years in Business Intelligence, executive reporting, and data quality, now expanding into Analytics Engineering, Microsoft Power Platform, Python automation, and AI-assisted solution design.",
+    "Portfolio of Carlo Menoro, DataCamp Certified Data Analyst and Senior Business Intelligence Analyst: 5+ years transforming business processes through analytics, reporting, and intelligent automation — Power BI, SQL, Python, and AI-assisted solution design.",
   keywords: [
+    "DataCamp Certified Data Analyst",
     "Business Intelligence",
-    "Business Intelligence Analyst",
+    "Senior Business Intelligence Analyst",
+    "Analytics Specialist",
+    "Data Analytics",
     "Power BI",
     "SQL",
     "Python",
@@ -39,10 +42,8 @@ export const seo = {
     "Data Governance",
     "KPI Reporting",
     "Reporting Automation",
+    "Process Improvement",
     "Microsoft Power Platform",
-    "Power Automate",
-    "Power Apps",
-    "Dataverse",
     "Analytics Engineering",
     "AI-Assisted Automation",
   ],
@@ -56,6 +57,65 @@ export const summary = {
   ],
   notOverstating:
     "I'm explicit throughout this site about what's current BI experience, what's a developing specialization, and what's a concept — see the status label on every project and capability.",
+  // Subtle credential mention for Home/About — keep accurate to how each
+  // credential is actually classified elsewhere on this site (IBM's is a
+  // single Coursera course, not a full IBM Professional Certificate).
+  credentialLine: "DataCamp Certified Data Analyst and SQL Associate, with IBM Business Intelligence (BI) Essentials.",
+};
+
+// ============================================================
+// Personal brand — Business Process Improvement & AI-Assisted Delivery
+// ============================================================
+// Central positioning theme, referenced from the Hero/About intro.
+export const brandTheme = "Transforming Business Processes Through Analytics, Intelligent Automation, and Data-Driven Decision Making";
+
+export const approach = {
+  eyebrow: "My Approach",
+  title: "Technology supports the story. Business improvement is the story.",
+  body: "I believe the purpose of analytics extends beyond reporting. The real value comes from improving how people work, strengthening business processes, increasing data quality, and enabling better decisions. My approach combines Business Intelligence, analytics, automation, and AI-assisted solution design to create practical solutions that reduce manual effort, improve governance, and deliver measurable business value.",
+};
+
+// The signature visual — one consolidated methodology, not three
+// overlapping lists. Phase labels double as the "Solution Delivery
+// Methodology" lifecycle; the step detail is written in the "How I Deliver
+// Solutions" voice.
+export const processFlow = [
+  { phase: "Business Understanding", detail: "Start from the business challenge, not the tool." },
+  { phase: "Current-Process Analysis", detail: "Understand how the work actually happens today, and where it breaks down." },
+  { phase: "Pain-Point & Root-Cause Analysis", detail: "Diagnose the specific problem, not just its symptoms." },
+  { phase: "Requirements & Data Analysis", detail: "Analyze the data available and define what a solution needs to do." },
+  { phase: "Solution Architecture & Design", detail: "Design a practical solution scoped to the actual problem." },
+  { phase: "Analytics & Automation Development", detail: "Build the reporting, analytics, and automation the design calls for." },
+  { phase: "Validation", detail: "Validate results with the stakeholders who'll actually use them." },
+  { phase: "Deployment", detail: "Deploy into real operational use, not just a demo." },
+  { phase: "Measuring Business Impact", detail: "Measure the outcome against the original business challenge." },
+  { phase: "Continuous Improvement", detail: "Treat the solution as a starting point, not a finish line." },
+];
+
+export const businessValue = {
+  eyebrow: "How I Create Business Value",
+  intro: "Organized around outcomes, not tools — every item below ties back to specific work in my Professional Experience or Projects.",
+  items: [
+    { title: "Improving Data Quality", detail: "Led enterprise-level Salesforce data validation at N2S, raising team data accuracy to a sustained 98%." },
+    { title: "Strengthening Data Governance", detail: "CRM health standards, structured QA workflows, and reporting standards built to hold up under audit, not just look good in a demo." },
+    { title: "Automating Manual Processes", detail: "Replaced manual Excel and internal-system workflows with automated reporting at Vector — real hours saved, not just a cleaner spreadsheet." },
+    { title: "Increasing Reporting Efficiency", detail: "Daily, weekly, and monthly KPI reporting engineered to run consistently instead of being rebuilt by hand each cycle." },
+    { title: "Supporting Executive Decision-Making", detail: "Advised C-suite leaders at JACCS through executive reports and strategic presentations grounded in the underlying data." },
+    { title: "Standardizing Business Processes", detail: "Structured quality-assurance workflows and reporting standards that replaced ad hoc, inconsistent processes at every stop." },
+    { title: "Improving Operational Visibility", detail: "Power BI monitoring views that surface data-quality and performance issues before they become executive-level problems." },
+    { title: "Enabling Cross-functional Collaboration", detail: "Coordinated stakeholders across departments at JACCS around shared business goals and reporting requirements." },
+    { title: "Building Scalable Reporting Solutions", detail: "Configuration-driven platforms like ESIP, designed to be reconfigured for new data rather than rebuilt from scratch." },
+    { title: "Driving Continuous Improvement", detail: "Root-cause analysis and process-improvement action built into the day-to-day work, not a separate initiative." },
+  ],
+};
+
+export const aiAssistedDevelopment = {
+  eyebrow: "AI-Assisted Solution Development",
+  title: "AI accelerates the work. I own every decision.",
+  intro:
+    "I use AI responsibly to accelerate business analysis, requirements gathering, architecture exploration, technical documentation, prototype development, code assistance, testing support, and solution refinement.",
+  ownership:
+    "AI accelerates my work, but every business decision, architecture choice, validation, testing, and final approval remains under my ownership.",
 };
 
 export const careerDirection = {
@@ -219,6 +279,12 @@ export type Project = {
   categories: ProjectCategory[];
   note?: string;
   description: string;
+  // Business-first framing (flagship projects only) — shown ahead of the
+  // technical description so each project reads as a business-improvement
+  // initiative first, a technology demonstration second.
+  businessChallenge?: string;
+  businessSolution?: string;
+  businessOutcome?: string;
   focus: string[];
   links?: { label: string; href: string }[];
 };
@@ -228,6 +294,12 @@ export const featuredProjects: Project[] = [
     title: "Enterprise Sales Intelligence Platform (ESIP)",
     status: "In Development",
     categories: ["Analytics Engineering", "Data Engineering", "Power BI"],
+    businessChallenge:
+      "Enterprise sales & operations reporting is only as trustworthy as the data model underneath it — most reporting projects jump straight to dashboards without validating that foundation first.",
+    businessSolution:
+      "A configuration-driven, validated data platform (Kimball-modeled) built to be trustworthy before any dashboard sits on top of it — foundation-first, not dashboard-first.",
+    businessOutcome:
+      "In Development — the validated data foundation is built; the goal is a platform other reports (like the Executive Sales Performance Dashboard below) can build on without re-validating the data every time.",
     description:
       "A configuration-driven enterprise sales analytics platform built on a large-scale synthetic B2B manufacturing dataset, using Kimball dimensional modeling. Completed: the dataset architecture, dimensional model, validation framework, documentation, and supporting BI reporting work. The broader platform — the full semantic and reporting layer across all of it — remains in development.",
     focus: [
@@ -244,6 +316,12 @@ export const featuredProjects: Project[] = [
     title: "Executive Sales Performance Dashboard",
     status: "Complete",
     categories: ["Power BI", "Business Intelligence"],
+    businessChallenge:
+      "Leadership needed a trustworthy, self-service view of sales and profitability performance without waiting on a manual report cycle.",
+    businessSolution:
+      "An interactive Power BI report with a reusable DAX measure library so every page uses the same KPI definitions, plus drill-through from summary KPIs to transaction-level detail.",
+    businessOutcome:
+      "A single source of truth for sales performance — no reconciling numbers that differ depending on which report or analyst produced them.",
     description:
       "A finished, standalone Power BI deliverable built from the ESIP dataset — sales, profitability, product, and regional performance with a reusable DAX measure library, executive KPI cards, and drill-through analysis. Distinct from the broader ESIP platform above, which is still in development as a whole.",
     focus: ["Power BI", "DAX", "Executive dashboards", "KPI reporting", "Sales analytics", "Operational reporting"],
@@ -253,6 +331,12 @@ export const featuredProjects: Project[] = [
     status: "Complete",
     categories: ["Python", "Business Intelligence"],
     note: "Originally developed as the Grace & Stella Commercial Intelligence Platform.",
+    businessChallenge:
+      "Commercial and leadership teams needed to explore revenue, profitability, and promotional performance themselves, not wait on a static export.",
+    businessSolution:
+      "A live, interactive Streamlit application (Python/Pandas/Plotly) covering revenue, margin, promotions, channels, products, and country performance.",
+    businessOutcome:
+      "A deployed application stakeholders can open and explore directly — real evidence of shipped, usable output, not a screenshot.",
     description:
       "An executive dashboard analyzing revenue, gross profit, promotions, channels, products, and country performance — deployed as a live, interactive Streamlit application using portfolio-safe synthetic data. No private client, customer, or employer information is displayed.",
     focus: ["Python", "Pandas", "Plotly", "Streamlit", "Commercial analytics"],
@@ -266,6 +350,12 @@ export const featuredProjects: Project[] = [
     status: "Architecture Complete",
     categories: ["AI Automation", "Data Engineering"],
     note: "Prototype planned next.",
+    businessChallenge:
+      "Manually identifying supplier products from photos and drafting listings is slow, inconsistent, and doesn't scale.",
+    businessSolution:
+      "A human-in-the-loop AI-assisted design — AI accelerates identification and drafting, a person makes every publish decision — with full audit history built into the architecture from the start.",
+    businessOutcome:
+      "Architecture Complete — the design de-risks the build phase before a line of code is written; no application exists yet, so there's no production outcome to report.",
     description:
       "A designed (not yet built) system for AI-assisted product enrichment from supplier photos, with a human-in-the-loop review and approval workflow, product governance, and full audit history. Solution architecture, data model, and integration design are complete; a mocked-data prototype is the next planned phase — no application code exists yet.",
     focus: [
@@ -339,13 +429,18 @@ export const analyticsEngineering = {
 
 export const aiAutomation = {
   intro: "AI as an accelerant for solution design — not a replacement for engineering judgment, and never auto-publishing without review.",
+  ownership:
+    "AI accelerates my work, but every business decision, architecture choice, validation, testing, and final approval remains under my ownership.",
   items: [
-    { title: "AI-assisted software engineering", detail: "Used throughout this site's own development, documented rather than hidden." },
+    { title: "Business analysis & requirements gathering", detail: "AI accelerates surfacing and structuring requirements — I own what actually goes into the scope." },
+    { title: "Architecture exploration", detail: "Used to compare design options quickly, as with the three architecture paths evaluated for the PIM platform — the recommendation and decision are mine." },
+    { title: "Technical documentation", detail: "Architecture decisions, risk registers, and open questions tracked explicitly before code is written." },
+    { title: "Prototype development & code assistance", detail: "Used throughout this site's own development, documented rather than hidden." },
+    { title: "Testing support", detail: "Validation rules enforced at generation/ETL time, with AI helping generate test coverage — not replace it." },
+    { title: "Solution refinement", detail: "Iterating on a working design faster, with every refinement reviewed before it ships." },
     { title: "Python automation", detail: "Data generation, validation, and analytics pipelines across ESIP and the Commercial Analytics Dashboard." },
-    { title: "Validation workflows", detail: "Rules enforced at generation/ETL time rather than manually checked after the fact." },
     { title: "Human-in-the-loop review", detail: "Every AI-assisted design here — the PIM platform especially — keeps a human approval step by design." },
     { title: "Explainable business rules", detail: "Validation and governance logic that can be read and audited, not opaque model output." },
-    { title: "Documentation-driven development", detail: "Architecture decisions, risk registers, and open questions tracked explicitly before code is written." },
   ],
 };
 
@@ -415,6 +510,37 @@ export type Certification = {
 };
 
 export const certifications: Certification[] = [
+  {
+    slug: "datacamp-certified-data-analyst",
+    badgeEmoji: "🎖️",
+    name: "DataCamp Certified Data Analyst",
+    provider: "DataCamp",
+    classification: ["Certification", "Badge and Achievement"],
+    issued: "August 3, 2026",
+    validUntil: "August 2, 2028",
+    credentialId: "DA0020890574399",
+    verificationUrl: "https://www.datacamp.com/certificate/DA0020890574399",
+    badgeImage: "/credentials/datacamp-certified-data-analyst/badge.png",
+    certificateFile: "/credentials/datacamp-certified-data-analyst/certificate.pdf",
+    certificatePreview: "/credentials/datacamp-certified-data-analyst/certificate-preview.png",
+    summary:
+      "DataCamp's full Certified Data Analyst credential — a multi-stage assessment (timed testing, an open-ended coding challenge, and a manually-graded practical exam) validating practical capability in data analysis, SQL, data management, analytical reporting, and communicating insights through applied assessment, not a single short course.",
+    skillsValidated: [
+      "Analytic Fundamentals",
+      "Exploratory Analysis",
+      "Data Management",
+      "Visualization and Reporting",
+      "SQL",
+      "Analytical Problem-Solving",
+      "Technical Reporting",
+      "Communicating Insights to Non-Technical Audiences",
+    ],
+    whatLearned:
+      "The certification's practical exam required building a technical report for a data-science-manager audience and then adapting the same findings into a non-technical presentation — the same translation between technical depth and stakeholder-facing communication that executive reporting requires day to day, assessed under exam conditions rather than self-reported.",
+    realWorldApplication:
+      "Directly the discipline behind every stakeholder-facing deliverable in my Professional Experience — executive reports at JACCS, KPI reporting at Vector, and the governance/reporting standards I led at N2S — and the same translation-to-audience skill behind every project write-up on this site.",
+    relatedProjects: ["Executive Sales Performance Dashboard", "Commercial Analytics Dashboard", "SQL Business Analytics Portfolio"],
+  },
   {
     slug: "datacamp-sql-associate",
     badgeEmoji: "🏅",
@@ -561,6 +687,7 @@ export const roadmap = {
     { title: "AI for Data Analysts", provider: "DataCamp", date: "Jul 2026" },
     { title: "IBM BI Essentials", provider: "IBM via Coursera", date: "Jul 2026" },
     { title: "SQL Associate", provider: "DataCamp", date: "Aug 2026" },
+    { title: "Certified Data Analyst", provider: "DataCamp", date: "Aug 2026" },
   ],
   inProgress: [
     { title: "Microsoft Power BI", detail: "Deepening semantic modeling and DAX beyond current reporting work" },
@@ -590,7 +717,7 @@ export const whyWorkWithMe = [
   { title: "Data quality", detail: "Led enterprise-level Salesforce data validation at N2S, raising team data accuracy to a sustained 98%." },
   { title: "Process improvement", detail: "Structured QA workflows and reporting standards that replaced ad hoc, inconsistent processes at every stop." },
   { title: "Stakeholder communication", detail: "Advised C-suite leaders directly at JACCS through executive reports and strategic presentations." },
-  { title: "Continuous learning", detail: "Three certifications completed within weeks of each other while working full-time — the Learning Roadmap on this site is kept current, not a one-time snapshot." },
+  { title: "Continuous learning", detail: "Four certifications completed within weeks of each other while working full-time — the Learning Roadmap on this site is kept current, not a one-time snapshot." },
   { title: "Leadership", detail: "Led enterprise-level data validation initiatives and coached team members to a consistent, measurable accuracy standard." },
 ];
 

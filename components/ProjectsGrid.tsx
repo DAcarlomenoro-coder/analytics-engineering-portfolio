@@ -14,6 +14,9 @@ type AnyProject = {
   categories: ProjectCategory[];
   note?: string;
   description: string;
+  businessChallenge?: string;
+  businessSolution?: string;
+  businessOutcome?: string;
   focus?: string[];
   tech?: string[];
   links?: { label: string; href: string }[];
@@ -44,12 +47,36 @@ function ProjectCard({ p }: { p: AnyProject }) {
         <StatusBadge status={p.status} />
       </div>
       {p.note ? <p className="mt-3 text-sm italic text-muted">{p.note}</p> : null}
-      <p className="mt-3 text-sm leading-relaxed text-muted">{p.description}</p>
+
+      {p.businessChallenge ? (
+        <div className="mt-4 space-y-3 border-t border-border pt-4">
+          <div>
+            <p className="text-xs font-medium text-muted">Business Challenge</p>
+            <p className="mt-0.5 text-sm leading-relaxed text-foreground/90">{p.businessChallenge}</p>
+          </div>
+          <div>
+            <p className="text-xs font-medium text-muted">Solution</p>
+            <p className="mt-0.5 text-sm leading-relaxed text-foreground/90">{p.businessSolution}</p>
+          </div>
+          <div>
+            <p className="text-xs font-medium text-muted">Business Outcome</p>
+            <p className="mt-0.5 text-sm leading-relaxed text-foreground/90">{p.businessOutcome}</p>
+          </div>
+        </div>
+      ) : null}
+
+      <p className={`text-sm leading-relaxed text-muted ${p.businessChallenge ? "mt-4 border-t border-border pt-4" : "mt-3"}`}>
+        {p.description}
+      </p>
+
       {tags.length ? (
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {tags.map((t) => (
-            <Tag key={t}>{t}</Tag>
-          ))}
+        <div className="mt-4">
+          {p.businessChallenge ? <p className="mb-1.5 text-xs font-medium text-muted">Technologies Used</p> : null}
+          <div className="flex flex-wrap gap-1.5">
+            {tags.map((t) => (
+              <Tag key={t}>{t}</Tag>
+            ))}
+          </div>
         </div>
       ) : null}
       {p.links ? (

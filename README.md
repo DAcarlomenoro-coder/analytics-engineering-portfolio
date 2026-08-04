@@ -11,6 +11,22 @@ separate from the Version A (BI-leadership) portfolio.
 Stack: Next.js (App Router) · TypeScript · Tailwind CSS v4. Single-page site,
 one route (`/`), content-driven from `lib/content.ts`.
 
+## Certifications
+
+Verified, currently held (see `certifications` in `lib/content.ts` for the
+full record — provider, dates, credential ID, skills validated):
+
+- **DataCamp Certified Data Analyst** — issued Aug 3, 2026, expires Aug 2, 2028 · [verify](https://www.datacamp.com/certificate/DA0020890574399)
+- **DataCamp SQL Associate** — issued Aug 1, 2026, expires Jul 31, 2028
+- **IBM Business Intelligence (BI) Essentials** (IBM via Coursera) — completed Jul 21, 2026 · [verify](https://coursera.org/verify/8PU3O8X5O4NU)
+- **AI for Data Analysts** (DataCamp) — completed Jul 9, 2026
+
+Assets (badge/certificate/preview images) live at
+`public/credentials/<slug>/`. Each credential has its own detail page at
+`/certifications/<slug>`, generated automatically from the `certifications`
+array — adding a new one there is enough, no route or component changes
+needed.
+
 ## Local setup
 
 ```bash
